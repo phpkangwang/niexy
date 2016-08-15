@@ -140,6 +140,20 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
+    public function actionTest()
+    {
+        //         $appid="wxc78c73cf4012af64";
+        //         $redirect_uri = "http://university.dev.eduugo.com/index.php?r=site%2Ftest1";
+        //         $get_token_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$appid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_base&state=1#wechat_redirect';
+    
+        $APPID='wxc78c73cf4012af64';
+        $REDIRECT_URI='http://university.dev.eduugo.com/callback.php';
+        $scope='snsapi_base';
+        //$scope='snsapi_userinfo';//需要授权
+        $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$APPID.'&redirect_uri='.urlencode($REDIRECT_URI).'&response_type=code&scope='.$scope.'&state=1#wechat_redirect';
+        header("Location:".$url);
+    }
 
     /**
      * Signs user up.
