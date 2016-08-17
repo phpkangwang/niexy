@@ -1,8 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends MY_Controller {
 
+class Car extends My_Controller {
+    public function __construct()
+    {
+        error_reporting(0);
+        //连接数据库
+        parent::__construct();
+    }
+    
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,11 +27,9 @@ class Welcome extends MY_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+	    $this->load->view('site/header.php');
+	    $this->load->view('car/index');
+	    $this->load->view('site/footer.php');
 	}
 	
-	public function second()
-	{
-	    echo "Welcome.second";
-	}
 }
